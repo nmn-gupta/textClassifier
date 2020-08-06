@@ -71,3 +71,6 @@ def translate(request):
             r = "It's a Positive sentence."
         params = {'purpose': 'Analyzed Text', 'converted_text': r}
         return render(request, 'analyze.html', params)
+    else:
+        params = {'purpose': 'Analyzed Text', 'converted_text': "No Option is chosen!!"}
+        return render(request, 'analyze.html', params)
