@@ -60,3 +60,14 @@ def translate(request):
 
         params = {'purpose': 'Classified Text', 'converted_text': r}
         return render(request, 'analyze.html', params)
+    elif sentiment == "on":
+        classify = TextBlob(input_text)
+        value = classify.sentiment.polarity
+        if value < 0:
+            r = "It's a Negative Sentence"
+        elif value == 0:
+            r = "It's a Neutral sentence"
+        elif value > 0 and value <= 1:
+            r = "It's a Positive sentence."
+        params = {'purpose': 'Analyzed Text', 'converted_text': r}
+        return render(request, 'analyze.html', params)
