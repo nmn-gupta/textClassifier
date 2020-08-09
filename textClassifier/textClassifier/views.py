@@ -58,7 +58,9 @@ def translate(request):
             if i[1] == "VBD":
                 r += str(i[0]) + ": Verb, past tense!!" + "\n"
             if i[1] == "VBN":
-                r += str(i[0]) + ": Verb, past participle!!" + "\n"
+                r += str(i[0]) + ": Verb, past participle!" + "\n"
+            if i[1] == "PDT":
+                r += str(i[0]) + ": Predeterminer!" + "\n"
 
         params = {'purpose': 'Classified Text', 'converted_text': r}
         return render(request, 'analyze.html', params)
